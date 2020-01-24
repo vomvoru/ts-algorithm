@@ -1,6 +1,6 @@
 {
   "exclude": ["node_modules"],
-  "include": ["./src/index.ts"],
+  "include": ["./src/**/*"],
   "compilerOptions": {
     "baseUrl": "./", 
     "declaration": true, // .d.ts 파일의 생성 여부

@@ -23,7 +23,7 @@ module.exports = merge(
           use: [
             {
               loader: 'ts-loader',
-            }
+            },
           ],
         },
       ],
