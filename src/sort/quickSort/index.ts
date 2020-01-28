@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 
 import { sortFunc } from '../types';
+import { swap } from '../util';
 
 export const quickSort: sortFunc = (arr, leftIndex, rightIndex) =>
   quickSortBase(arr, leftIndex, rightIndex);
@@ -71,10 +72,4 @@ const getPivotIndex = (arr: number[], leftIndex: number, rightIndex: number) => 
     return leftIndex;
 
   return rightIndex;
-};
-
-const swap = (arr: number[], i: number, j: number) => {
-  const temp = arr[j];
-  arr[j] = arr[i];
-  arr[i] = temp;
 };
