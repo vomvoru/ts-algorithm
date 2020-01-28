@@ -1,6 +1,14 @@
 /* eslint-disable no-param-reassign */
 
-export const quickSort = (
+import { sortFunc } from '../types';
+
+export const quickSort: sortFunc = (arr, leftIndex, rightIndex) =>
+  quickSortBase(arr, leftIndex, rightIndex);
+
+export const quickSortWithMidPivot: sortFunc = (arr, leftIndex, rightIndex) =>
+  quickSortBase(arr, leftIndex, rightIndex, true);
+
+const quickSortBase = (
   arr: number[],
   leftIndex: number,
   rightIndex: number,
@@ -15,8 +23,8 @@ export const quickSort = (
     useMidPivot ? getPivotIndex(arr, leftIndex, rightIndex) : leftIndex
   );
 
-  quickSort(arr, leftIndex, pivotIndex - 1);
-  quickSort(arr, pivotIndex + 1, rightIndex);
+  quickSortBase(arr, leftIndex, pivotIndex - 1);
+  quickSortBase(arr, pivotIndex + 1, rightIndex);
 };
 
 const isValid = (leftIndex: number, rightIndex: number) => leftIndex < rightIndex;
@@ -45,7 +53,7 @@ const pivotSort = (arr: number[], leftIndex: number, rightIndex: number, pivotIn
 const getPivotIndex = (arr: number[], leftIndex: number, rightIndex: number) => {
   const leftPivot = arr[leftIndex];
 
-  const midIndex = Math.floor((rightIndex - leftIndex) / 2);
+  const midIndex = leftIndex + Math.floor((rightIndex - leftIndex) / 2);
   const midPivot = arr[midIndex];
 
   const rightPivot = arr[rightIndex];
